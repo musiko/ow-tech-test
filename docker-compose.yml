@@ -1,0 +1,17 @@
+name: ow-test
+
+networks:
+  test-proxy:
+    driver: bridge
+
+services:
+  backend:
+    container_name: ow-test-backend
+    hostname: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - ${BACKEND_PORT:-8000}:8000
+    networks:
+      - test-proxy
