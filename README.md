@@ -113,7 +113,7 @@ The requirement did not state whether the `/usage` endpoint should return HTTP e
 - [ ] Logging
 - [ ] Retry with exponential backoff for querying upstream services
 - [ ] API versioning
-- [ ] Mock response in tests to avoid external service calls
+- [x] Mock response in tests to avoid external service calls
 
 
 #### 2. Choice of Framework / Libraries
@@ -125,6 +125,10 @@ The requirement did not state whether the `/usage` endpoint should return HTTP e
 
 ### Possible Improvements
 
+- Complete the `/usage` endpoint test with mock data and assertions
+- Add retry logic with exponential backoff to the HTTPX client for fetching data from upstream services.
+- Add API versioning
+- Add logging functions
 
 
 ## License
