@@ -93,7 +93,7 @@ The requirement did not state whether the `/usage` endpoint should return HTTP e
 *Essential TODO List:*
 - Routes
   - [x] GET '/'
-  - [ ] GET '/usage'
+  - [x] GET '/usage'
 - Models
   - [x] API Response from other services
     - Copilot Message
@@ -101,13 +101,13 @@ The requirement did not state whether the `/usage` endpoint should return HTTP e
   - [x] `/usage` API Response:
     - Copilot Usage
 - HTTP Client to query upstream services
-   - [ ] Get messages
-   - [ ] Get reports by ID
-- [ ] Credit usage calculation service
+   - [x] Get messages
+   - [x] Get reports by ID
+- [x] Credit usage calculation service
 - Tests
-  - [ ] Unit Tests for usage calculation service
-  - [ ] Integration Tests for HTTP client service
-  - [ ] Integration Tests for routes
+  - [x] Unit Tests for usage calculation service
+  - [x] Integration Tests for HTTP client service
+  - [ ] Integration Tests for `/usage` API
 
 *Optional TODO List:*
 - [ ] Logging

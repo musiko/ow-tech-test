@@ -19,3 +19,10 @@ class CopilotReport(BaseModel):
     id: int
     name: str
     credit_cost: float
+
+
+class CopilotUsage(BaseModel):
+    message_id: int
+    timestamp: datetime
+    report_name: Optional[str] = None
+    credits_used: float
