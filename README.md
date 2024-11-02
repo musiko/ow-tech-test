@@ -83,12 +83,48 @@ Location of command execution: Root directory of this repository
 
 ##### 1.1. Potentially Ambiguous Requirements and Assumptions
 
+> If the `reports/:id` endpoint returns a HTTP 404 status code for a given report_id you must fall back to the calculation method outlined below.
+
+The requirement did not state whether the `/usage` endpoint should return HTTP error code when the report endpoint returns a HTTP error code other than HTTP 404. Assume that it should raise HTTP 500 error code. Retry could be implemented if there is sufficient time left after essential functions implementation.
+
+
 ##### 1.2. Decision on a List of Features within Time Limit
 
-#### 2. Choice of Language / Framework / Libraries
+*Essential TODO List:*
+- Routes
+  - [x] GET '/'
+  - [ ] GET '/usage'
+- Models
+  - [x] API Response from other services
+    - Copilot Message
+    - Copilot Report
+  - [x] `/usage` API Response:
+    - Copilot Usage
+- HTTP Client to query upstream services
+   - [ ] Get messages
+   - [ ] Get reports by ID
+- [ ] Credit usage calculation service
+- Tests
+  - [ ] Unit Tests for usage calculation service
+  - [ ] Integration Tests for HTTP client service
+  - [ ] Integration Tests for routes
+
+*Optional TODO List:*
+- [ ] Logging
+- [ ] Retry with exponential backoff for querying upstream services
+- [ ] API versioning
+- [ ] Mock response in tests to avoid external service calls
+
+
+#### 2. Choice of Framework / Libraries
+
+- `FastAPI` framework was chosen to build API endpoints, since it is easy to use and fast. One of its strength over Flask is the integration with `pydantic` to validate request body and response body of the API endpoints. Also it supports asynchronous requests out of the box.
+- `HTTPX` provides a client that can be used to query upstream services. It also has support for retries with exponential backoff and mocking responses in tests.
+- `pytest` was chosen as a testing framework to run unit, integration and functional tests. It also has support for mocking responses in tests.
 
 
 ### Possible Improvements
+
 
 
 ## License
